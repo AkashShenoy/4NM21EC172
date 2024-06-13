@@ -22,6 +22,7 @@ int main(){
             countUpper++;
         }
     }
+    char alt[1024]=text;
     for(int I=0; text[I] != '\0'; I++){
         if(islower(text[I])){
             text[I]=toupper(text[I]);
@@ -30,11 +31,20 @@ int main(){
             text[I]=tolower(text[I]);
         }
     }
-    printf("Number of Digits         = %d\n",countDigit);
-    printf("Number of Alphabets      = %d\n",countAlpha);
-    printf("Number of Alpha Numerics = %d\n",countAlNum);
-    printf("Number of Uppercases     = %d\n",countUpper);
-    printf("Number of Lowercases     = %d\n",countLower);
-    printf("The Case Toggled Text is : %s",text);
+     for(int I=0; alt[I] != '\0'; I++){
+        if('a'<= alt[I] && alt[I]<= 'z'){
+            alt[I]=alt[I] - 32;
+        }
+        else if('A'<= alt[I] && alt[I]<= 'Z'){
+            alt[I]=alt[I] + 32;
+        }
+    }
+    printf("Number of Digits               = %d\n",countDigit);
+    printf("Number of Alphabets            = %d\n",countAlpha);
+    printf("Number of Alpha Numerics       = %d\n",countAlNum);
+    printf("Number of Uppercases           = %d\n",countUpper);
+    printf("Number of Lowercases           = %d\n",countLower);
+    printf("The Case Toggled Text is       : %s\n",text);
+    printf("The Case Toggle w/o ctype.h is : %s",text);
     return 0;
 }
