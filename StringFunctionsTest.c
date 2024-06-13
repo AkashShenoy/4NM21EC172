@@ -22,10 +22,19 @@ int main(){
             countUpper++;
         }
     }
+    for(int I=0; text[I] != '\0'; I++){
+        if(islower(text[I])){
+            text[I]=toupper(text[I]);
+        }
+        else if(isupper(text[I])){
+            text[I]=tolower(text[I]);
+        }
+    }
     printf("Number of Digits         = %d\n",countDigit);
     printf("Number of Alphabets      = %d\n",countAlpha);
     printf("Number of Alpha Numerics = %d\n",countAlNum);
     printf("Number of Uppercases     = %d\n",countUpper);
     printf("Number of Lowercases     = %d\n",countLower);
+    printf("The Case Toggled Text is : %s",text);
     return 0;
 }
